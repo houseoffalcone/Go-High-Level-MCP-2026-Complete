@@ -50,6 +50,7 @@ import { TemplatesTools } from './tools/templates-tools.js';
 import { TriggersTools } from './tools/triggers-tools.js';
 import { UsersTools } from './tools/users-tools.js';
 import { WebhooksTools } from './tools/webhooks-tools.js';
+import { WorkflowBuilderTools } from './tools/workflow-builder-tools.js';
 
 // ─── Types ──────────────────────────────────────────────────
 
@@ -227,6 +228,10 @@ export class ToolRegistry {
     this.addModule('triggers', triggersTools, 'getToolDefinitions', 'handleToolCall');
     this.addModule('users', usersTools, 'getToolDefinitions', 'handleToolCall');
     this.addModule('webhooks', webhooksTools, 'getToolDefinitions', 'handleToolCall');
+
+    // Workflow Builder — internal API with Firebase auth (no GHL API client dependency)
+    const workflowBuilderTools = new WorkflowBuilderTools();
+    this.addModule('workflowBuilder', workflowBuilderTools, 'getTools', 'executeWorkflowBuilderTool');
   }
 
   private addModule(
@@ -362,8 +367,4 @@ export class ToolRegistry {
   }
 }
 
-export { registerAllTools };
-
-function registerAllTools() {
-  // Placeholder — actual registration happens via ToolRegistry class
-}
+// All tool registration is handled via the ToolRegistry class above.

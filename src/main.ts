@@ -19,7 +19,7 @@ import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/
 import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
 
 import { EnhancedGHLClient } from './enhanced-ghl-client.js';
-import { registerAllTools, ToolRegistry } from './tool-registry.js';
+import { ToolRegistry } from './tool-registry.js';
 import { MCPAppsManager } from './apps/index.js';
 import { GHLConfig } from './types/ghl-types.js';
 
@@ -353,7 +353,7 @@ async function main() {
     console.log(`📡 Streamable HTTP: http://0.0.0.0:${port}/mcp`);
     console.log(`🔗 Legacy SSE: http://0.0.0.0:${port}/sse`);
     console.log(`🛠️  Tools: ${totalTools}`);
-    console.log(`📦 SDK: @modelcontextprotocol/sdk 1.26`);
+    console.log(`📦 SDK: @modelcontextprotocol/sdk 1.27.1`);
     console.log('═══════════════════════════════════════════');
   });
 }

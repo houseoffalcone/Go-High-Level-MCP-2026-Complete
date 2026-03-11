@@ -36,16 +36,16 @@ export class OAuthTools {
           type: 'object',
           properties: {
             appId: { type: 'string', description: 'OAuth App ID' },
-            locationId: { type: 'string', description: 'Location ID' },
+            locationId: { type: 'string', description: 'Location ID' }
+          },
+          required: ['appId']
+        },
         _meta: {
           labels: {
             category: "oauth",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['appId']
         }
       },
       {
@@ -59,16 +59,16 @@ export class OAuthTools {
             skip: { type: 'number', description: 'Records to skip' },
             limit: { type: 'number', description: 'Max results' },
             query: { type: 'string', description: 'Search query' },
-            isInstalled: { type: 'boolean', description: 'Filter by installation status' },
+            isInstalled: { type: 'boolean', description: 'Filter by installation status' }
+          },
+          required: ['appId', 'companyId']
+        },
         _meta: {
           labels: {
             category: "oauth",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['appId', 'companyId']
         }
       },
 
@@ -95,16 +95,16 @@ export class OAuthTools {
           type: 'object',
           properties: {
             companyId: { type: 'string', description: 'Company/Agency ID' },
-            locationId: { type: 'string', description: 'Target Location ID' },
+            locationId: { type: 'string', description: 'Target Location ID' }
+          },
+          required: ['companyId', 'locationId']
+        },
         _meta: {
           labels: {
             category: "oauth",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['companyId', 'locationId']
         }
       },
 
@@ -133,16 +133,16 @@ export class OAuthTools {
           type: 'object',
           properties: {
             integrationId: { type: 'string', description: 'Integration ID to disconnect' },
-            locationId: { type: 'string', description: 'Location ID' },
+            locationId: { type: 'string', description: 'Location ID' }
+          },
+          required: ['integrationId']
+        },
         _meta: {
           labels: {
             category: "oauth",
-            access: "read",
+            access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['integrationId']
         }
       },
 
@@ -176,16 +176,16 @@ export class OAuthTools {
               type: 'array', 
               items: { type: 'string' },
               description: 'Permission scopes for the key'
-            },
+            }
+          },
+          required: ['name']
+        },
         _meta: {
           labels: {
             category: "oauth",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name']
         }
       },
       {
@@ -195,16 +195,16 @@ export class OAuthTools {
           type: 'object',
           properties: {
             keyId: { type: 'string', description: 'API Key ID' },
-            locationId: { type: 'string', description: 'Location ID' },
+            locationId: { type: 'string', description: 'Location ID' }
+          },
+          required: ['keyId']
+        },
         _meta: {
           labels: {
             category: "oauth",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['keyId']
         }
       }
     ];
