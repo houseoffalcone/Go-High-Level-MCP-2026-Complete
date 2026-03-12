@@ -56,15 +56,15 @@ export class CompaniesTools {
               type: 'string',
               description: 'Location ID (uses default if not provided)'
             },
+          },
+          required: ['companyId']
+        },
         _meta: {
           labels: {
             category: "general",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['companyId']
         }
       },
       {
@@ -142,13 +142,6 @@ export class CompaniesTools {
                   key: { type: 'string' },
                   value: { type: 'string' }
                 },
-        _meta: {
-          labels: {
-            category: "general",
-            access: "write",
-            complexity: "simple"
-          }
-        }
               },
               description: 'Custom field values'
             },
@@ -159,6 +152,13 @@ export class CompaniesTools {
             }
           },
           required: ['name']
+        },
+        _meta: {
+          labels: {
+            category: "general",
+            access: "write",
+            complexity: "simple"
+          }
         }
       },
       {
@@ -236,13 +236,6 @@ export class CompaniesTools {
                   key: { type: 'string' },
                   value: { type: 'string' }
                 },
-        _meta: {
-          labels: {
-            category: "general",
-            access: "write",
-            complexity: "simple"
-          }
-        }
               },
               description: 'Custom field values'
             },
@@ -253,6 +246,13 @@ export class CompaniesTools {
             }
           },
           required: ['companyId']
+        },
+        _meta: {
+          labels: {
+            category: "general",
+            access: "write",
+            complexity: "simple"
+          }
         }
       },
       {
@@ -269,15 +269,15 @@ export class CompaniesTools {
               type: 'string',
               description: 'Location ID (uses default if not provided)'
             },
+          },
+          required: ['companyId']
+        },
         _meta: {
           labels: {
             category: "general",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['companyId']
         }
       }
     ];

@@ -39,15 +39,15 @@ export class CampaignsTools {
           properties: {
             campaignId: { type: 'string', description: 'Campaign ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['campaignId']
+        },
         _meta: {
           labels: {
             category: "campaigns",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['campaignId']
         }
       },
       {
@@ -60,15 +60,15 @@ export class CampaignsTools {
             name: { type: 'string', description: 'Campaign name' },
             type: { type: 'string', enum: ['email', 'sms', 'voicemail'], description: 'Campaign type' },
             status: { type: 'string', enum: ['draft', 'scheduled'], description: 'Initial status' },
+          },
+          required: ['name', 'type']
+        },
         _meta: {
           labels: {
             category: "campaigns",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name', 'type']
         }
       },
       {
@@ -81,15 +81,15 @@ export class CampaignsTools {
             locationId: { type: 'string', description: 'Location ID' },
             name: { type: 'string', description: 'Campaign name' },
             status: { type: 'string', enum: ['draft', 'scheduled', 'paused'], description: 'Campaign status' },
+          },
+          required: ['campaignId']
+        },
         _meta: {
           labels: {
             category: "campaigns",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['campaignId']
         }
       },
       {
@@ -100,15 +100,15 @@ export class CampaignsTools {
           properties: {
             campaignId: { type: 'string', description: 'Campaign ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['campaignId']
+        },
         _meta: {
           labels: {
             category: "campaigns",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['campaignId']
         }
       },
 
@@ -121,15 +121,15 @@ export class CampaignsTools {
           properties: {
             campaignId: { type: 'string', description: 'Campaign ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['campaignId']
+        },
         _meta: {
           labels: {
             category: "campaigns",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['campaignId']
         }
       },
       {
@@ -140,15 +140,15 @@ export class CampaignsTools {
           properties: {
             campaignId: { type: 'string', description: 'Campaign ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['campaignId']
+        },
         _meta: {
           labels: {
             category: "campaigns",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['campaignId']
         }
       },
       {
@@ -159,15 +159,15 @@ export class CampaignsTools {
           properties: {
             campaignId: { type: 'string', description: 'Campaign ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['campaignId']
+        },
         _meta: {
           labels: {
             category: "campaigns",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['campaignId']
         }
       },
 
@@ -180,15 +180,15 @@ export class CampaignsTools {
           properties: {
             campaignId: { type: 'string', description: 'Campaign ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['campaignId']
+        },
         _meta: {
           labels: {
             category: "campaigns",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['campaignId']
         }
       },
       {
@@ -202,15 +202,15 @@ export class CampaignsTools {
             status: { type: 'string', enum: ['sent', 'delivered', 'opened', 'clicked', 'bounced', 'unsubscribed'], description: 'Filter by recipient status' },
             limit: { type: 'number', description: 'Max results' },
             offset: { type: 'number', description: 'Pagination offset' },
+          },
+          required: ['campaignId']
+        },
         _meta: {
           labels: {
             category: "campaigns",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['campaignId']
         }
       },
 
@@ -242,15 +242,15 @@ export class CampaignsTools {
           properties: {
             messageId: { type: 'string', description: 'Scheduled message ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['messageId']
+        },
         _meta: {
           labels: {
             category: "campaigns",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['messageId']
         }
       }
     ];

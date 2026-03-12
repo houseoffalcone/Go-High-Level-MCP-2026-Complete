@@ -100,15 +100,15 @@ export class LocationTools {
               type: 'string',
               description: 'The unique ID of the location to retrieve'
             },
+          },
+          required: ['locationId']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId']
         }
       },
       {
@@ -163,13 +163,6 @@ export class LocationTools {
                 firstName: { type: 'string', description: 'Prospect first name' },
                 lastName: { type: 'string', description: 'Prospect last name' },
                 email: { type: 'string', format: 'email', description: 'Prospect email' },
-        _meta: {
-          labels: {
-            category: "locations",
-            access: "write",
-            complexity: "simple"
-          }
-        }
               },
               required: ['firstName', 'lastName', 'email'],
               description: 'Prospect information for the location'
@@ -180,6 +173,13 @@ export class LocationTools {
             }
           },
           required: ['name', 'companyId']
+        },
+        _meta: {
+          labels: {
+            category: "locations",
+            access: "write",
+            complexity: "simple"
+          }
         }
       },
       {
@@ -232,15 +232,15 @@ export class LocationTools {
               type: 'string',
               description: 'Updated timezone'
             },
+          },
+          required: ['locationId', 'companyId']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'companyId']
         }
       },
       {
@@ -258,15 +258,15 @@ export class LocationTools {
               description: 'Whether to delete associated Twilio account',
               default: false
             },
+          },
+          required: ['locationId', 'deleteTwilioAccount']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'deleteTwilioAccount']
         }
       },
 
@@ -281,15 +281,15 @@ export class LocationTools {
               type: 'string',
               description: 'The location ID to get tags from'
             },
+          },
+          required: ['locationId']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId']
         }
       },
       {
@@ -306,15 +306,15 @@ export class LocationTools {
               type: 'string',
               description: 'Name of the tag to create'
             },
+          },
+          required: ['locationId', 'name']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'name']
         }
       },
       {
@@ -331,15 +331,15 @@ export class LocationTools {
               type: 'string',
               description: 'The tag ID to retrieve'
             },
+          },
+          required: ['locationId', 'tagId']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'tagId']
         }
       },
       {
@@ -360,15 +360,15 @@ export class LocationTools {
               type: 'string',
               description: 'Updated name for the tag'
             },
+          },
+          required: ['locationId', 'tagId', 'name']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'tagId', 'name']
         }
       },
       {
@@ -385,15 +385,15 @@ export class LocationTools {
               type: 'string',
               description: 'The tag ID to delete'
             },
+          },
+          required: ['locationId', 'tagId']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'tagId']
         }
       },
 
@@ -440,15 +440,15 @@ export class LocationTools {
               type: 'string',
               description: 'Business ID filter'
             },
+          },
+          required: ['locationId']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId']
         }
       },
 
@@ -469,15 +469,15 @@ export class LocationTools {
               description: 'Filter by model type (default: all)',
               default: 'all'
             },
+          },
+          required: ['locationId']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId']
         }
       },
       {
@@ -513,15 +513,15 @@ export class LocationTools {
               description: 'Position/order of the field (default: 0)',
               default: 0
             },
+          },
+          required: ['locationId', 'name', 'dataType']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'name', 'dataType']
         }
       },
       {
@@ -538,15 +538,15 @@ export class LocationTools {
               type: 'string',
               description: 'The custom field ID to retrieve'
             },
+          },
+          required: ['locationId', 'customFieldId']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'customFieldId']
         }
       },
       {
@@ -575,15 +575,15 @@ export class LocationTools {
               type: 'number',
               description: 'Updated position/order'
             },
+          },
+          required: ['locationId', 'customFieldId', 'name']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'customFieldId', 'name']
         }
       },
       {
@@ -600,15 +600,15 @@ export class LocationTools {
               type: 'string',
               description: 'The custom field ID to delete'
             },
+          },
+          required: ['locationId', 'customFieldId']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'customFieldId']
         }
       },
 
@@ -623,15 +623,15 @@ export class LocationTools {
               type: 'string',
               description: 'The location ID'
             },
+          },
+          required: ['locationId']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId']
         }
       },
       {
@@ -652,15 +652,15 @@ export class LocationTools {
               type: 'string',
               description: 'Value to assign'
             },
+          },
+          required: ['locationId', 'name', 'value']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'name', 'value']
         }
       },
       {
@@ -677,15 +677,15 @@ export class LocationTools {
               type: 'string',
               description: 'The custom value ID to retrieve'
             },
+          },
+          required: ['locationId', 'customValueId']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'customValueId']
         }
       },
       {
@@ -710,15 +710,15 @@ export class LocationTools {
               type: 'string',
               description: 'Updated value'
             },
+          },
+          required: ['locationId', 'customValueId', 'name', 'value']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'customValueId', 'name', 'value']
         }
       },
       {
@@ -735,15 +735,15 @@ export class LocationTools {
               type: 'string',
               description: 'The custom value ID to delete'
             },
+          },
+          required: ['locationId', 'customValueId']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'customValueId']
         }
       },
 
@@ -782,15 +782,15 @@ export class LocationTools {
               enum: ['sms', 'email', 'whatsapp'],
               description: 'Filter by template type'
             },
+          },
+          required: ['locationId', 'originId']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'originId']
         }
       },
       {
@@ -807,15 +807,15 @@ export class LocationTools {
               type: 'string',
               description: 'The template ID to delete'
             },
+          },
+          required: ['locationId', 'templateId']
+        },
         _meta: {
           labels: {
             category: "locations",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['locationId', 'templateId']
         }
       },
 

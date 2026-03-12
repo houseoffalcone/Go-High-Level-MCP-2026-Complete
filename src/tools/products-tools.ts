@@ -185,15 +185,15 @@ ${params.includedInStore !== undefined ? `• **Store Status:** ${params.include
             image: { type: 'string', description: 'Product image URL' },
             availableInStore: { type: 'boolean', description: 'Whether product is available in store' },
             slug: { type: 'string', description: 'Product URL slug' },
+          },
+          required: ['name', 'productType']
+        },
         _meta: {
           labels: {
             category: "products",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name', 'productType']
         }
       },
       {
@@ -209,15 +209,15 @@ ${params.includedInStore !== undefined ? `• **Store Status:** ${params.include
             storeId: { type: 'string', description: 'Filter by store ID' },
             includedInStore: { type: 'boolean', description: 'Filter by store inclusion status' },
             availableInStore: { type: 'boolean', description: 'Filter by store availability' },
+          },
+          required: []
+        },
         _meta: {
           labels: {
             category: "products",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: []
         }
       },
       {
@@ -228,15 +228,15 @@ ${params.includedInStore !== undefined ? `• **Store Status:** ${params.include
           properties: {
             productId: { type: 'string', description: 'Product ID to retrieve' },
             locationId: { type: 'string', description: 'GHL Location ID (optional, uses default if not provided)' },
+          },
+          required: ['productId']
+        },
         _meta: {
           labels: {
             category: "products",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['productId']
         }
       },
       {
@@ -256,15 +256,15 @@ ${params.includedInStore !== undefined ? `• **Store Status:** ${params.include
             description: { type: 'string', description: 'Product description' },
             image: { type: 'string', description: 'Product image URL' },
             availableInStore: { type: 'boolean', description: 'Whether product is available in store' },
+          },
+          required: ['productId']
+        },
         _meta: {
           labels: {
             category: "products",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['productId']
         }
       },
       {
@@ -275,15 +275,15 @@ ${params.includedInStore !== undefined ? `• **Store Status:** ${params.include
           properties: {
             productId: { type: 'string', description: 'Product ID to delete' },
             locationId: { type: 'string', description: 'GHL Location ID (optional, uses default if not provided)' },
+          },
+          required: ['productId']
+        },
         _meta: {
           labels: {
             category: "products",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['productId']
         }
       },
 
@@ -305,15 +305,15 @@ ${params.includedInStore !== undefined ? `• **Store Status:** ${params.include
             amount: { type: 'number', description: 'Price amount in cents' },
             locationId: { type: 'string', description: 'GHL Location ID (optional, uses default if not provided)' },
             compareAtPrice: { type: 'number', description: 'Compare at price (for discounts)' },
+          },
+          required: ['productId', 'name', 'type', 'currency', 'amount']
+        },
         _meta: {
           labels: {
             category: "products",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['productId', 'name', 'type', 'currency', 'amount']
         }
       },
       {
@@ -326,15 +326,15 @@ ${params.includedInStore !== undefined ? `• **Store Status:** ${params.include
             locationId: { type: 'string', description: 'GHL Location ID (optional, uses default if not provided)' },
             limit: { type: 'number', description: 'Maximum number of prices to return' },
             offset: { type: 'number', description: 'Number of prices to skip' },
+          },
+          required: ['productId']
+        },
         _meta: {
           labels: {
             category: "products",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['productId']
         }
       },
 
@@ -349,15 +349,15 @@ ${params.includedInStore !== undefined ? `• **Store Status:** ${params.include
             limit: { type: 'number', description: 'Maximum number of items to return' },
             offset: { type: 'number', description: 'Number of items to skip' },
             search: { type: 'string', description: 'Search term for inventory items' },
+          },
+          required: []
+        },
         _meta: {
           labels: {
             category: "products",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: []
         }
       },
 
@@ -379,15 +379,15 @@ ${params.includedInStore !== undefined ? `• **Store Status:** ${params.include
                 description: { type: 'string', description: 'SEO description' }
               }
             },
+          },
+          required: ['name', 'slug']
+        },
         _meta: {
           labels: {
             category: "products",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name', 'slug']
         }
       },
       {
@@ -400,15 +400,15 @@ ${params.includedInStore !== undefined ? `• **Store Status:** ${params.include
             limit: { type: 'number', description: 'Maximum number of collections to return' },
             offset: { type: 'number', description: 'Number of collections to skip' },
             name: { type: 'string', description: 'Search by collection name' },
+          },
+          required: []
+        },
         _meta: {
           labels: {
             category: "products",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: []
         }
       },
       {
@@ -426,13 +426,13 @@ ${params.includedInStore !== undefined ? `• **Store Status:** ${params.include
             availableInStore: { type: 'boolean', description: 'Set store availability for all specified products' },
             includedInStore: { type: 'boolean', description: 'Set store inclusion for all specified products' },
           },
-          required: ['ids'],
-          _meta: {
-            labels: {
-              category: "products",
-              access: "write",
-              complexity: "simple"
-            }
+          required: ['ids']
+        },
+        _meta: {
+          labels: {
+            category: "products",
+            access: "write",
+            complexity: "simple"
           }
         }
       }

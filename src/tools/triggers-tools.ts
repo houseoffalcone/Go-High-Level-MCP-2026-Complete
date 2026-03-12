@@ -39,15 +39,15 @@ export class TriggersTools {
           properties: {
             triggerId: { type: 'string', description: 'Trigger ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['triggerId']
+        },
         _meta: {
           labels: {
             category: "triggers",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['triggerId']
         }
       },
       {
@@ -78,13 +78,6 @@ export class TriggersTools {
                   operator: { type: 'string', description: 'Comparison operator' },
                   value: { type: 'string', description: 'Filter value' }
                 },
-        _meta: {
-          labels: {
-            category: "triggers",
-            access: "write",
-            complexity: "simple"
-          }
-        }
               },
               description: 'Conditions that must be met'
             },
@@ -101,6 +94,13 @@ export class TriggersTools {
             }
           },
           required: ['name', 'type']
+        },
+        _meta: {
+          labels: {
+            category: "triggers",
+            access: "write",
+            complexity: "simple"
+          }
         }
       },
       {
@@ -115,15 +115,15 @@ export class TriggersTools {
             filters: { type: 'array', description: 'Filter conditions' },
             actions: { type: 'array', description: 'Actions to perform' },
             status: { type: 'string', enum: ['active', 'inactive'], description: 'Trigger status' },
+          },
+          required: ['triggerId']
+        },
         _meta: {
           labels: {
             category: "triggers",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['triggerId']
         }
       },
       {
@@ -134,15 +134,15 @@ export class TriggersTools {
           properties: {
             triggerId: { type: 'string', description: 'Trigger ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['triggerId']
+        },
         _meta: {
           labels: {
             category: "triggers",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['triggerId']
         }
       },
       {
@@ -153,15 +153,15 @@ export class TriggersTools {
           properties: {
             triggerId: { type: 'string', description: 'Trigger ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['triggerId']
+        },
         _meta: {
           labels: {
             category: "triggers",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['triggerId']
         }
       },
       {
@@ -172,15 +172,15 @@ export class TriggersTools {
           properties: {
             triggerId: { type: 'string', description: 'Trigger ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['triggerId']
+        },
         _meta: {
           labels: {
             category: "triggers",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['triggerId']
         }
       },
       {
@@ -213,15 +213,15 @@ export class TriggersTools {
             endDate: { type: 'string', description: 'End date' },
             limit: { type: 'number', description: 'Max results' },
             offset: { type: 'number', description: 'Pagination offset' },
+          },
+          required: ['triggerId']
+        },
         _meta: {
           labels: {
             category: "triggers",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['triggerId']
         }
       },
       {
@@ -233,15 +233,15 @@ export class TriggersTools {
             triggerId: { type: 'string', description: 'Trigger ID' },
             locationId: { type: 'string', description: 'Location ID' },
             testData: { type: 'object', description: 'Sample data to test with' },
+          },
+          required: ['triggerId']
+        },
         _meta: {
           labels: {
             category: "triggers",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['triggerId']
         }
       },
       {
@@ -253,15 +253,15 @@ export class TriggersTools {
             triggerId: { type: 'string', description: 'Trigger ID to duplicate' },
             locationId: { type: 'string', description: 'Location ID' },
             name: { type: 'string', description: 'Name for the duplicate' },
+          },
+          required: ['triggerId']
+        },
         _meta: {
           labels: {
             category: "triggers",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['triggerId']
         }
       }
     ];

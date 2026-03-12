@@ -76,15 +76,15 @@ export class FormsTools {
               type: 'number',
               description: 'Page number for pagination'
             },
+          },
+          required: ['formId']
+        },
         _meta: {
           labels: {
             category: "forms",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['formId']
         }
       },
       {
@@ -101,15 +101,15 @@ export class FormsTools {
               type: 'string',
               description: 'Location ID (uses default if not provided)'
             },
+          },
+          required: ['formId']
+        },
         _meta: {
           labels: {
             category: "forms",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['formId']
         }
       },
       {

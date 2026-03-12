@@ -86,15 +86,15 @@ export class InvoicesTools {
             currency: { type: 'string', description: 'Currency code' },
             issueDate: { type: 'string', description: 'Issue date' },
             dueDate: { type: 'string', description: 'Due date' },
+          },
+          required: ['name']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name']
         }
       },
       {
@@ -109,15 +109,15 @@ export class InvoicesTools {
             status: { type: 'string', description: 'Filter by status' },
             search: { type: 'string', description: 'Search term' },
             paymentMode: { type: 'string', enum: ['default', 'live', 'test'], description: 'Payment mode' },
+          },
+          required: ['limit', 'offset']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['limit', 'offset']
         }
       },
       {
@@ -128,15 +128,15 @@ export class InvoicesTools {
           properties: {
             templateId: { type: 'string', description: 'Template ID' },
             altId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['templateId']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['templateId']
         }
       },
       {
@@ -150,15 +150,15 @@ export class InvoicesTools {
             name: { type: 'string', description: 'Template name' },
             title: { type: 'string', description: 'Invoice title' },
             currency: { type: 'string', description: 'Currency code' },
+          },
+          required: ['templateId']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['templateId']
         }
       },
       {
@@ -169,15 +169,15 @@ export class InvoicesTools {
           properties: {
             templateId: { type: 'string', description: 'Template ID' },
             altId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['templateId']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['templateId']
         }
       },
 
@@ -193,15 +193,15 @@ export class InvoicesTools {
             templateId: { type: 'string', description: 'Template ID' },
             contactId: { type: 'string', description: 'Contact ID' },
             frequency: { type: 'string', description: 'Schedule frequency' },
+          },
+          required: ['name', 'templateId', 'contactId']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name', 'templateId', 'contactId']
         }
       },
       {
@@ -215,15 +215,15 @@ export class InvoicesTools {
             offset: { type: 'string', description: 'Offset for pagination', default: '0' },
             status: { type: 'string', description: 'Filter by status' },
             search: { type: 'string', description: 'Search term' },
+          },
+          required: ['limit', 'offset']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['limit', 'offset']
         }
       },
       {
@@ -234,15 +234,15 @@ export class InvoicesTools {
           properties: {
             scheduleId: { type: 'string', description: 'Schedule ID' },
             altId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['scheduleId']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['scheduleId']
         }
       },
 
@@ -260,15 +260,15 @@ export class InvoicesTools {
             issueDate: { type: 'string', description: 'Issue date' },
             dueDate: { type: 'string', description: 'Due date' },
             items: { type: 'array', description: 'Invoice items' },
+          },
+          required: ['contactId', 'title']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['contactId', 'title']
         }
       },
       {
@@ -283,15 +283,15 @@ export class InvoicesTools {
             status: { type: 'string', description: 'Filter by status' },
             contactId: { type: 'string', description: 'Filter by contact ID' },
             search: { type: 'string', description: 'Search term' },
+          },
+          required: ['limit', 'offset']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['limit', 'offset']
         }
       },
       {
@@ -302,15 +302,15 @@ export class InvoicesTools {
           properties: {
             invoiceId: { type: 'string', description: 'Invoice ID' },
             altId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['invoiceId']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['invoiceId']
         }
       },
       {
@@ -324,15 +324,15 @@ export class InvoicesTools {
             emailTo: { type: 'string', description: 'Email address to send to' },
             subject: { type: 'string', description: 'Email subject' },
             message: { type: 'string', description: 'Email message' },
+          },
+          required: ['invoiceId']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['invoiceId']
         }
       },
 
@@ -349,15 +349,15 @@ export class InvoicesTools {
             currency: { type: 'string', description: 'Currency code' },
             issueDate: { type: 'string', description: 'Issue date' },
             validUntil: { type: 'string', description: 'Valid until date' },
+          },
+          required: ['contactId', 'title']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['contactId', 'title']
         }
       },
       {
@@ -372,15 +372,15 @@ export class InvoicesTools {
             status: { type: 'string', enum: ['all', 'draft', 'sent', 'accepted', 'declined', 'invoiced', 'viewed'], description: 'Filter by status' },
             contactId: { type: 'string', description: 'Filter by contact ID' },
             search: { type: 'string', description: 'Search term' },
+          },
+          required: ['limit', 'offset']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['limit', 'offset']
         }
       },
       {
@@ -394,15 +394,15 @@ export class InvoicesTools {
             emailTo: { type: 'string', description: 'Email address to send to' },
             subject: { type: 'string', description: 'Email subject' },
             message: { type: 'string', description: 'Email message' },
+          },
+          required: ['estimateId']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['estimateId']
         }
       },
       {
@@ -415,15 +415,15 @@ export class InvoicesTools {
             altId: { type: 'string', description: 'Location ID' },
             issueDate: { type: 'string', description: 'Invoice issue date' },
             dueDate: { type: 'string', description: 'Invoice due date' },
+          },
+          required: ['estimateId']
+        },
         _meta: {
           labels: {
             category: "invoices",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['estimateId']
         }
       },
 

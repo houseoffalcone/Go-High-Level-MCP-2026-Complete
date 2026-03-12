@@ -39,15 +39,15 @@ export class AffiliatesTools {
           properties: {
             campaignId: { type: 'string', description: 'Affiliate Campaign ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['campaignId']
+        },
         _meta: {
           labels: {
             category: "affiliates",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['campaignId']
         }
       },
       {
@@ -63,15 +63,15 @@ export class AffiliatesTools {
             commissionValue: { type: 'number', description: 'Commission value (percentage or fixed amount)' },
             cookieDays: { type: 'number', description: 'Cookie tracking duration in days' },
             productIds: { type: 'array', items: { type: 'string' }, description: 'Product IDs for this campaign' },
+          },
+          required: ['name', 'commissionType', 'commissionValue']
+        },
         _meta: {
           labels: {
             category: "affiliates",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name', 'commissionType', 'commissionValue']
         }
       },
       {
@@ -87,15 +87,15 @@ export class AffiliatesTools {
             commissionType: { type: 'string', enum: ['percentage', 'fixed'], description: 'Commission type' },
             commissionValue: { type: 'number', description: 'Commission value' },
             status: { type: 'string', enum: ['active', 'inactive'], description: 'Campaign status' },
+          },
+          required: ['campaignId']
+        },
         _meta: {
           labels: {
             category: "affiliates",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['campaignId']
         }
       },
       {
@@ -106,15 +106,15 @@ export class AffiliatesTools {
           properties: {
             campaignId: { type: 'string', description: 'Campaign ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['campaignId']
+        },
         _meta: {
           labels: {
             category: "affiliates",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['campaignId']
         }
       },
 
@@ -148,15 +148,15 @@ export class AffiliatesTools {
           properties: {
             affiliateId: { type: 'string', description: 'Affiliate ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['affiliateId']
+        },
         _meta: {
           labels: {
             category: "affiliates",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['affiliateId']
         }
       },
       {
@@ -170,15 +170,15 @@ export class AffiliatesTools {
             campaignId: { type: 'string', description: 'Campaign to assign to' },
             customCode: { type: 'string', description: 'Custom affiliate code' },
             status: { type: 'string', enum: ['pending', 'approved'], description: 'Initial status' },
+          },
+          required: ['contactId', 'campaignId']
+        },
         _meta: {
           labels: {
             category: "affiliates",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['contactId', 'campaignId']
         }
       },
       {
@@ -191,15 +191,15 @@ export class AffiliatesTools {
             locationId: { type: 'string', description: 'Location ID' },
             status: { type: 'string', enum: ['pending', 'approved', 'rejected'], description: 'Status' },
             customCode: { type: 'string', description: 'Custom affiliate code' },
+          },
+          required: ['affiliateId']
+        },
         _meta: {
           labels: {
             category: "affiliates",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['affiliateId']
         }
       },
       {
@@ -210,15 +210,15 @@ export class AffiliatesTools {
           properties: {
             affiliateId: { type: 'string', description: 'Affiliate ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['affiliateId']
+        },
         _meta: {
           labels: {
             category: "affiliates",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['affiliateId']
         }
       },
       {
@@ -230,15 +230,15 @@ export class AffiliatesTools {
             affiliateId: { type: 'string', description: 'Affiliate ID' },
             locationId: { type: 'string', description: 'Location ID' },
             reason: { type: 'string', description: 'Rejection reason' },
+          },
+          required: ['affiliateId']
+        },
         _meta: {
           labels: {
             category: "affiliates",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['affiliateId']
         }
       },
       {
@@ -249,15 +249,15 @@ export class AffiliatesTools {
           properties: {
             affiliateId: { type: 'string', description: 'Affiliate ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['affiliateId']
+        },
         _meta: {
           labels: {
             category: "affiliates",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['affiliateId']
         }
       },
 
@@ -275,15 +275,15 @@ export class AffiliatesTools {
             endDate: { type: 'string', description: 'End date' },
             limit: { type: 'number', description: 'Max results' },
             offset: { type: 'number', description: 'Pagination offset' },
+          },
+          required: ['affiliateId']
+        },
         _meta: {
           labels: {
             category: "affiliates",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['affiliateId']
         }
       },
       {
@@ -296,15 +296,15 @@ export class AffiliatesTools {
             locationId: { type: 'string', description: 'Location ID' },
             startDate: { type: 'string', description: 'Start date' },
             endDate: { type: 'string', description: 'End date' },
+          },
+          required: ['affiliateId']
+        },
         _meta: {
           labels: {
             category: "affiliates",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['affiliateId']
         }
       },
       {
@@ -318,15 +318,15 @@ export class AffiliatesTools {
             amount: { type: 'number', description: 'Payout amount' },
             commissionIds: { type: 'array', items: { type: 'string' }, description: 'Commission IDs to include' },
             note: { type: 'string', description: 'Payout note' },
+          },
+          required: ['affiliateId', 'amount']
+        },
         _meta: {
           labels: {
             category: "affiliates",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['affiliateId', 'amount']
         }
       },
       {

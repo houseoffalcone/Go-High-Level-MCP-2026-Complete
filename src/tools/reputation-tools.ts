@@ -43,15 +43,15 @@ export class ReputationTools {
           properties: {
             reviewId: { type: 'string', description: 'Review ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['reviewId']
+        },
         _meta: {
           labels: {
             category: "reputation",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['reviewId']
         }
       },
       {
@@ -63,15 +63,15 @@ export class ReputationTools {
             reviewId: { type: 'string', description: 'Review ID' },
             locationId: { type: 'string', description: 'Location ID' },
             reply: { type: 'string', description: 'Reply text' },
+          },
+          required: ['reviewId', 'reply']
+        },
         _meta: {
           labels: {
             category: "reputation",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['reviewId', 'reply']
         }
       },
       {
@@ -83,15 +83,15 @@ export class ReputationTools {
             reviewId: { type: 'string', description: 'Review ID' },
             locationId: { type: 'string', description: 'Location ID' },
             reply: { type: 'string', description: 'Updated reply text' },
+          },
+          required: ['reviewId', 'reply']
+        },
         _meta: {
           labels: {
             category: "reputation",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['reviewId', 'reply']
         }
       },
       {
@@ -102,15 +102,15 @@ export class ReputationTools {
           properties: {
             reviewId: { type: 'string', description: 'Review ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['reviewId']
+        },
         _meta: {
           labels: {
             category: "reputation",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['reviewId']
         }
       },
 
@@ -148,15 +148,15 @@ export class ReputationTools {
             platform: { type: 'string', enum: ['google', 'facebook', 'yelp'], description: 'Platform to request review on' },
             method: { type: 'string', enum: ['sms', 'email', 'both'], description: 'Delivery method' },
             message: { type: 'string', description: 'Custom message (optional)' },
+          },
+          required: ['contactId', 'platform', 'method']
+        },
         _meta: {
           labels: {
             category: "reputation",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['contactId', 'platform', 'method']
         }
       },
       {
@@ -224,15 +224,15 @@ export class ReputationTools {
           properties: {
             locationId: { type: 'string', description: 'Location ID' },
             platform: { type: 'string', enum: ['google', 'facebook', 'yelp'], description: 'Platform to disconnect' },
+          },
+          required: ['platform']
+        },
         _meta: {
           labels: {
             category: "reputation",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['platform']
         }
       },
 

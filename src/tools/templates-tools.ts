@@ -38,15 +38,15 @@ export class TemplatesTools {
           properties: {
             templateId: { type: 'string', description: 'SMS Template ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['templateId']
+        },
         _meta: {
           labels: {
             category: "templates",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['templateId']
         }
       },
       {
@@ -58,15 +58,15 @@ export class TemplatesTools {
             locationId: { type: 'string', description: 'Location ID' },
             name: { type: 'string', description: 'Template name' },
             body: { type: 'string', description: 'SMS message body (can include merge fields like {{contact.first_name}})' },
+          },
+          required: ['name', 'body']
+        },
         _meta: {
           labels: {
             category: "templates",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name', 'body']
         }
       },
       {
@@ -79,15 +79,15 @@ export class TemplatesTools {
             locationId: { type: 'string', description: 'Location ID' },
             name: { type: 'string', description: 'Template name' },
             body: { type: 'string', description: 'SMS message body' },
+          },
+          required: ['templateId']
+        },
         _meta: {
           labels: {
             category: "templates",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['templateId']
         }
       },
       {
@@ -98,15 +98,15 @@ export class TemplatesTools {
           properties: {
             templateId: { type: 'string', description: 'SMS Template ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['templateId']
+        },
         _meta: {
           labels: {
             category: "templates",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['templateId']
         }
       },
 
@@ -137,15 +137,15 @@ export class TemplatesTools {
             locationId: { type: 'string', description: 'Location ID' },
             name: { type: 'string', description: 'Template name' },
             audioUrl: { type: 'string', description: 'URL to audio file' },
+          },
+          required: ['name', 'audioUrl']
+        },
         _meta: {
           labels: {
             category: "templates",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name', 'audioUrl']
         }
       },
       {
@@ -156,15 +156,15 @@ export class TemplatesTools {
           properties: {
             templateId: { type: 'string', description: 'Template ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['templateId']
+        },
         _meta: {
           labels: {
             category: "templates",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['templateId']
         }
       },
 
@@ -199,15 +199,15 @@ export class TemplatesTools {
             content: { type: 'string', description: 'Post content' },
             mediaUrls: { type: 'array', items: { type: 'string' }, description: 'Media URLs' },
             platforms: { type: 'array', items: { type: 'string' }, description: 'Target platforms' },
+          },
+          required: ['name', 'content']
+        },
         _meta: {
           labels: {
             category: "templates",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name', 'content']
         }
       },
       {
@@ -218,15 +218,15 @@ export class TemplatesTools {
           properties: {
             templateId: { type: 'string', description: 'Template ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['templateId']
+        },
         _meta: {
           labels: {
             category: "templates",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['templateId']
         }
       },
 
@@ -260,15 +260,15 @@ export class TemplatesTools {
             category: { type: 'string', enum: ['marketing', 'utility', 'authentication'], description: 'Template category' },
             language: { type: 'string', description: 'Language code (e.g., en_US)' },
             components: { type: 'array', description: 'Template components (header, body, footer, buttons)' },
+          },
+          required: ['name', 'category', 'language', 'components']
+        },
         _meta: {
           labels: {
             category: "templates",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name', 'category', 'language', 'components']
         }
       },
       {
@@ -279,15 +279,15 @@ export class TemplatesTools {
           properties: {
             templateId: { type: 'string', description: 'Template ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['templateId']
+        },
         _meta: {
           labels: {
             category: "templates",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['templateId']
         }
       },
 
@@ -321,15 +321,15 @@ export class TemplatesTools {
             shortcut: { type: 'string', description: 'Keyboard shortcut (e.g., /thanks)' },
             content: { type: 'string', description: 'Snippet content' },
             type: { type: 'string', enum: ['sms', 'email', 'both'], description: 'Snippet type' },
+          },
+          required: ['name', 'content']
+        },
         _meta: {
           labels: {
             category: "templates",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name', 'content']
         }
       },
       {
@@ -343,15 +343,15 @@ export class TemplatesTools {
             name: { type: 'string', description: 'Snippet name' },
             shortcut: { type: 'string', description: 'Keyboard shortcut' },
             content: { type: 'string', description: 'Snippet content' },
+          },
+          required: ['snippetId']
+        },
         _meta: {
           labels: {
             category: "templates",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['snippetId']
         }
       },
       {
@@ -362,15 +362,15 @@ export class TemplatesTools {
           properties: {
             snippetId: { type: 'string', description: 'Snippet ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['snippetId']
+        },
         _meta: {
           labels: {
             category: "templates",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['snippetId']
         }
       }
     ];

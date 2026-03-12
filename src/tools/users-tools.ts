@@ -73,15 +73,15 @@ export class UsersTools {
               type: 'string',
               description: 'Location ID (uses default if not provided)'
             },
+          },
+          required: ['userId']
+        },
         _meta: {
           labels: {
             category: "users",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['userId']
         }
       },
       {
@@ -132,15 +132,15 @@ export class UsersTools {
               items: { type: 'string' },
               description: 'Scopes only assigned to this user'
             },
+          },
+          required: ['firstName', 'lastName', 'email']
+        },
         _meta: {
           labels: {
             category: "users",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['firstName', 'lastName', 'email']
         }
       },
       {
@@ -185,15 +185,15 @@ export class UsersTools {
               type: 'object',
               description: 'User permissions object'
             },
+          },
+          required: ['userId']
+        },
         _meta: {
           labels: {
             category: "users",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['userId']
         }
       },
       {
@@ -210,15 +210,15 @@ export class UsersTools {
               type: 'string',
               description: 'Location ID (uses default if not provided)'
             },
+          },
+          required: ['userId']
+        },
         _meta: {
           labels: {
             category: "users",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['userId']
         }
       },
       {

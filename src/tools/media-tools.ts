@@ -82,15 +82,15 @@ export class MediaTools {
               type: 'string', 
               description: 'Parent folder ID to list files within a specific folder'
             },
+          },
+          required: []
+        },
         _meta: {
           labels: {
             category: "media",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: []
         }
       },
       {
@@ -130,15 +130,15 @@ export class MediaTools {
               type: 'string', 
               description: 'Location or Agency ID (uses default location if not provided)'
             },
+          },
+          required: []
+        },
         _meta: {
           labels: {
             category: "media",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: []
         }
       },
       {
@@ -161,15 +161,15 @@ export class MediaTools {
               type: 'string', 
               description: 'Location or Agency ID (uses default location if not provided)'
             },
+          },
+          required: ['id']
+        },
         _meta: {
           labels: {
             category: "media",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['id']
         }
       },
       {

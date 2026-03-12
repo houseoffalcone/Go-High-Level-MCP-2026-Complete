@@ -23,8 +23,9 @@ export interface Tool {
   inputSchema: {
     type: string;
     properties: Record<string, any>;
-    required: string[];
+    required?: string[];
   };
+  _meta?: Record<string, unknown>;
 }
 
 /**
@@ -49,15 +50,15 @@ export class ObjectTools {
               type: 'string', 
               description: 'Location ID (uses default if not provided)'
             },
+          },
+          required: []
+        },
         _meta: {
           labels: {
             category: "objects",
             access: "read",
             complexity: "batch"
           }
-        }
-          },
-          required: []
         }
       },
       {
@@ -72,13 +73,6 @@ export class ObjectTools {
               properties: {
                 singular: { type: 'string', description: 'Singular name (e.g., "Pet")' },
                 plural: { type: 'string', description: 'Plural name (e.g., "Pets")' },
-        _meta: {
-          labels: {
-            category: "objects",
-            access: "write",
-            complexity: "simple"
-          }
-        }
               },
               required: ['singular', 'plural']
             },
@@ -106,6 +100,13 @@ export class ObjectTools {
             }
           },
           required: ['labels', 'key', 'primaryDisplayPropertyDetails']
+        },
+        _meta: {
+          labels: {
+            category: "objects",
+            access: "write",
+            complexity: "simple"
+          }
         }
       },
       {
@@ -127,15 +128,15 @@ export class ObjectTools {
               description: 'Whether to fetch all standard/custom fields of the object',
               default: true
             },
+          },
+          required: ['key']
+        },
         _meta: {
           labels: {
             category: "objects",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['key']
         }
       },
       {
@@ -155,13 +156,6 @@ export class ObjectTools {
                 singular: { type: 'string', description: 'Updated singular name' },
                 plural: { type: 'string', description: 'Updated plural name' }
               },
-        _meta: {
-          labels: {
-            category: "objects",
-            access: "write",
-            complexity: "simple"
-          }
-        }
             },
             description: { 
               type: 'string', 
@@ -178,6 +172,13 @@ export class ObjectTools {
             }
           },
           required: ['key', 'searchableProperties']
+        },
+        _meta: {
+          labels: {
+            category: "objects",
+            access: "write",
+            complexity: "simple"
+          }
         }
       },
       {
@@ -210,15 +211,15 @@ export class ObjectTools {
               items: { type: 'string' },
               maxItems: 10
             },
+          },
+          required: ['schemaKey', 'properties']
+        },
         _meta: {
           labels: {
             category: "objects",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['schemaKey', 'properties']
         }
       },
       {
@@ -235,15 +236,15 @@ export class ObjectTools {
               type: 'string', 
               description: 'ID of the record to retrieve'
             },
+          },
+          required: ['schemaKey', 'recordId']
+        },
         _meta: {
           labels: {
             category: "objects",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['schemaKey', 'recordId']
         }
       },
       {
@@ -280,15 +281,15 @@ export class ObjectTools {
               items: { type: 'string' },
               maxItems: 10
             },
+          },
+          required: ['schemaKey', 'recordId']
+        },
         _meta: {
           labels: {
             category: "objects",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['schemaKey', 'recordId']
         }
       },
       {
@@ -305,15 +306,15 @@ export class ObjectTools {
               type: 'string', 
               description: 'ID of the record to delete'
             },
+          },
+          required: ['schemaKey', 'recordId']
+        },
         _meta: {
           labels: {
             category: "objects",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['schemaKey', 'recordId']
         }
       },
       {
@@ -352,15 +353,15 @@ export class ObjectTools {
               description: 'Cursor for pagination (returned from previous search)',
               items: { type: 'string' }
             },
+          },
+          required: ['schemaKey', 'query']
+        },
         _meta: {
           labels: {
             category: "objects",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['schemaKey', 'query']
         }
       }
     ];

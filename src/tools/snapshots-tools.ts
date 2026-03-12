@@ -28,15 +28,15 @@ export class SnapshotsTools {
               type: 'number',
               description: 'Maximum number of snapshots to return'
             },
+          },
+          required: ['companyId']
+        },
         _meta: {
           labels: {
             category: "snapshots",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['companyId']
         }
       },
       {
@@ -53,15 +53,15 @@ export class SnapshotsTools {
               type: 'string',
               description: 'Company/Agency ID'
             },
+          },
+          required: ['snapshotId', 'companyId']
+        },
         _meta: {
           labels: {
             category: "snapshots",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['snapshotId', 'companyId']
         }
       },
       {
@@ -86,15 +86,15 @@ export class SnapshotsTools {
               type: 'string',
               description: 'Description of the snapshot'
             },
+          },
+          required: ['companyId', 'locationId', 'name']
+        },
         _meta: {
           labels: {
             category: "snapshots",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['companyId', 'locationId', 'name']
         }
       },
       {
@@ -115,15 +115,15 @@ export class SnapshotsTools {
               type: 'string',
               description: 'The push operation ID'
             },
+          },
+          required: ['snapshotId', 'companyId']
+        },
         _meta: {
           labels: {
             category: "snapshots",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['snapshotId', 'companyId']
         }
       },
       {
@@ -144,15 +144,15 @@ export class SnapshotsTools {
               type: 'string',
               description: 'Target location ID'
             },
+          },
+          required: ['snapshotId', 'companyId', 'locationId']
+        },
         _meta: {
           labels: {
             category: "snapshots",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['snapshotId', 'companyId', 'locationId']
         }
       },
       {
@@ -186,18 +186,18 @@ export class SnapshotsTools {
                 calendars: { type: 'boolean', description: 'Override existing calendars' },
                 automations: { type: 'boolean', description: 'Override existing automations' },
                 triggers: { type: 'boolean', description: 'Override existing triggers' },
+              },
+              description: 'What to override vs skip'
+            }
+          },
+          required: ['snapshotId', 'companyId', 'locationIds']
+        },
         _meta: {
           labels: {
             category: "snapshots",
             access: "read",
             complexity: "simple"
           }
-        }
-              },
-              description: 'What to override vs skip'
-            }
-          },
-          required: ['snapshotId', 'companyId', 'locationIds']
         }
       },
       {

@@ -69,15 +69,15 @@ export class FunnelsTools {
               type: 'string',
               description: 'Location ID (uses default if not provided)'
             },
+          },
+          required: ['funnelId']
+        },
         _meta: {
           labels: {
             category: "funnels",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['funnelId']
         }
       },
       {
@@ -102,15 +102,15 @@ export class FunnelsTools {
               type: 'number',
               description: 'Maximum number of pages to return'
             },
+          },
+          required: ['funnelId']
+        },
         _meta: {
           labels: {
             category: "funnels",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['funnelId']
         }
       },
       {
@@ -127,15 +127,15 @@ export class FunnelsTools {
               type: 'string',
               description: 'Location ID (uses default if not provided)'
             },
+          },
+          required: ['funnelId']
+        },
         _meta: {
           labels: {
             category: "funnels",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['funnelId']
         }
       },
       {
@@ -165,15 +165,15 @@ export class FunnelsTools {
               type: 'string',
               description: 'Source path for the redirect'
             },
+          },
+          required: ['funnelId', 'target', 'action']
+        },
         _meta: {
           labels: {
             category: "funnels",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['funnelId', 'target', 'action']
         }
       },
       {
@@ -207,15 +207,15 @@ export class FunnelsTools {
               type: 'string',
               description: 'Source path for the redirect'
             },
+          },
+          required: ['funnelId', 'redirectId']
+        },
         _meta: {
           labels: {
             category: "funnels",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['funnelId', 'redirectId']
         }
       },
       {
@@ -236,15 +236,15 @@ export class FunnelsTools {
               type: 'string',
               description: 'Location ID (uses default if not provided)'
             },
+          },
+          required: ['funnelId', 'redirectId']
+        },
         _meta: {
           labels: {
             category: "funnels",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['funnelId', 'redirectId']
         }
       },
       {
@@ -269,15 +269,15 @@ export class FunnelsTools {
               type: 'number',
               description: 'Maximum number of redirects to return'
             },
+          },
+          required: ['funnelId']
+        },
         _meta: {
           labels: {
             category: "funnels",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['funnelId']
         }
       }
     ];

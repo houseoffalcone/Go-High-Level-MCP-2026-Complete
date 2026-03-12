@@ -44,15 +44,15 @@ export class BusinessesTools {
               type: 'string',
               description: 'Location ID (uses default if not provided)'
             },
+          },
+          required: ['businessId']
+        },
         _meta: {
           labels: {
             category: "businesses",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['businessId']
         }
       },
       {
@@ -109,15 +109,15 @@ export class BusinessesTools {
               type: 'string',
               description: 'URL to business logo image'
             },
+          },
+          required: ['name']
+        },
         _meta: {
           labels: {
             category: "businesses",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name']
         }
       },
       {
@@ -178,15 +178,15 @@ export class BusinessesTools {
               type: 'string',
               description: 'URL to business logo image'
             },
+          },
+          required: ['businessId']
+        },
         _meta: {
           labels: {
             category: "businesses",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['businessId']
         }
       },
       {
@@ -203,15 +203,15 @@ export class BusinessesTools {
               type: 'string',
               description: 'Location ID (uses default if not provided)'
             },
+          },
+          required: ['businessId']
+        },
         _meta: {
           labels: {
             category: "businesses",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['businessId']
         }
       }
     ];

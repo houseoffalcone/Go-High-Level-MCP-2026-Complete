@@ -52,15 +52,15 @@ export class LinksTools {
               type: 'string',
               description: 'Location ID (uses default if not provided)'
             },
+          },
+          required: ['linkId']
+        },
         _meta: {
           labels: {
             category: "links",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['linkId']
         }
       },
       {
@@ -89,15 +89,15 @@ export class LinksTools {
               type: 'string',
               description: 'Value to set for the custom field'
             },
+          },
+          required: ['name', 'redirectTo']
+        },
         _meta: {
           labels: {
             category: "links",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name', 'redirectTo']
         }
       },
       {
@@ -130,15 +130,15 @@ export class LinksTools {
               type: 'string',
               description: 'Value to set for the custom field'
             },
+          },
+          required: ['linkId']
+        },
         _meta: {
           labels: {
             category: "links",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['linkId']
         }
       },
       {
@@ -155,15 +155,15 @@ export class LinksTools {
               type: 'string',
               description: 'Location ID (uses default if not provided)'
             },
+          },
+          required: ['linkId']
+        },
         _meta: {
           labels: {
             category: "links",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['linkId']
         }
       },
       {

@@ -103,15 +103,15 @@ export class OpportunityTools {
               type: 'string',
               description: 'The unique ID of the opportunity to retrieve'
             },
+          },
+          required: ['opportunityId']
+        },
         _meta: {
           labels: {
             category: "deals",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['opportunityId']
         }
       },
       {
@@ -146,15 +146,15 @@ export class OpportunityTools {
               type: 'string',
               description: 'User ID to assign this opportunity to'
             },
+          },
+          required: ['name', 'pipelineId', 'contactId']
+        },
         _meta: {
           labels: {
             category: "deals",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name', 'pipelineId', 'contactId']
         }
       },
       {
@@ -172,15 +172,15 @@ export class OpportunityTools {
               description: 'New status for the opportunity',
               enum: ['open', 'won', 'lost', 'abandoned']
             },
+          },
+          required: ['opportunityId', 'status']
+        },
         _meta: {
           labels: {
             category: "deals",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['opportunityId', 'status']
         }
       },
       {
@@ -193,15 +193,15 @@ export class OpportunityTools {
               type: 'string',
               description: 'The unique ID of the opportunity to delete'
             },
+          },
+          required: ['opportunityId']
+        },
         _meta: {
           labels: {
             category: "deals",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['opportunityId']
         }
       },
       {
@@ -239,15 +239,15 @@ export class OpportunityTools {
               type: 'string',
               description: 'Updated assigned user ID'
             },
+          },
+          required: ['opportunityId']
+        },
         _meta: {
           labels: {
             category: "deals",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['opportunityId']
         }
       },
       {
@@ -286,15 +286,15 @@ export class OpportunityTools {
               type: 'string',
               description: 'User ID to assign this opportunity to'
             },
+          },
+          required: ['pipelineId', 'contactId']
+        },
         _meta: {
           labels: {
             category: "deals",
             access: "write",
             complexity: "complex"
           }
-        }
-          },
-          required: ['pipelineId', 'contactId']
         }
       },
       {
@@ -312,15 +312,15 @@ export class OpportunityTools {
               items: { type: 'string' },
               description: 'Array of user IDs to add as followers'
             },
+          },
+          required: ['opportunityId', 'followers']
+        },
         _meta: {
           labels: {
             category: "deals",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['opportunityId', 'followers']
         }
       },
       {
@@ -338,15 +338,15 @@ export class OpportunityTools {
               items: { type: 'string' },
               description: 'Array of user IDs to remove as followers'
             },
+          },
+          required: ['opportunityId', 'followers']
+        },
         _meta: {
           labels: {
             category: "deals",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['opportunityId', 'followers']
         }
       }
     ];

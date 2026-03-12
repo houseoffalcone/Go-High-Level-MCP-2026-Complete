@@ -35,15 +35,15 @@ export class WebhooksTools {
           properties: {
             webhookId: { type: 'string', description: 'Webhook ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['webhookId']
+        },
         _meta: {
           labels: {
             category: "webhooks",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['webhookId']
         }
       },
       {
@@ -61,15 +61,15 @@ export class WebhooksTools {
               description: 'Events to subscribe to (e.g., contact.created, opportunity.updated)'
             },
             secret: { type: 'string', description: 'Secret key for webhook signature verification' },
+          },
+          required: ['name', 'url', 'events']
+        },
         _meta: {
           labels: {
             category: "webhooks",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['name', 'url', 'events']
         }
       },
       {
@@ -88,15 +88,15 @@ export class WebhooksTools {
               description: 'Events to subscribe to'
             },
             active: { type: 'boolean', description: 'Whether webhook is active' },
+          },
+          required: ['webhookId']
+        },
         _meta: {
           labels: {
             category: "webhooks",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['webhookId']
         }
       },
       {
@@ -107,15 +107,15 @@ export class WebhooksTools {
           properties: {
             webhookId: { type: 'string', description: 'Webhook ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['webhookId']
+        },
         _meta: {
           labels: {
             category: "webhooks",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['webhookId']
         }
       },
       {
@@ -144,15 +144,15 @@ export class WebhooksTools {
             limit: { type: 'number', description: 'Max results' },
             offset: { type: 'number', description: 'Pagination offset' },
             status: { type: 'string', enum: ['success', 'failed', 'pending'], description: 'Filter by delivery status' },
+          },
+          required: ['webhookId']
+        },
         _meta: {
           labels: {
             category: "webhooks",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['webhookId']
         }
       },
       {
@@ -164,15 +164,15 @@ export class WebhooksTools {
             webhookId: { type: 'string', description: 'Webhook ID' },
             logId: { type: 'string', description: 'Webhook log entry ID to retry' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['webhookId', 'logId']
+        },
         _meta: {
           labels: {
             category: "webhooks",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['webhookId', 'logId']
         }
       },
       {
@@ -184,15 +184,15 @@ export class WebhooksTools {
             webhookId: { type: 'string', description: 'Webhook ID' },
             locationId: { type: 'string', description: 'Location ID' },
             eventType: { type: 'string', description: 'Event type to test' },
+          },
+          required: ['webhookId', 'eventType']
+        },
         _meta: {
           labels: {
             category: "webhooks",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['webhookId', 'eventType']
         }
       }
     ];

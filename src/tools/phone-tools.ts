@@ -36,15 +36,15 @@ export class PhoneTools {
           properties: {
             phoneNumberId: { type: 'string', description: 'Phone Number ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['phoneNumberId']
+        },
         _meta: {
           labels: {
             category: "phone-numbers",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['phoneNumberId']
         }
       },
       {
@@ -58,15 +58,15 @@ export class PhoneTools {
             areaCode: { type: 'string', description: 'Area code to search' },
             contains: { type: 'string', description: 'Number pattern to search for' },
             type: { type: 'string', enum: ['local', 'tollfree', 'mobile'], description: 'Number type' },
+          },
+          required: ['country']
+        },
         _meta: {
           labels: {
             category: "phone-numbers",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['country']
         }
       },
       {
@@ -78,15 +78,15 @@ export class PhoneTools {
             locationId: { type: 'string', description: 'Location ID' },
             phoneNumber: { type: 'string', description: 'Phone number to purchase' },
             name: { type: 'string', description: 'Friendly name for the number' },
+          },
+          required: ['phoneNumber']
+        },
         _meta: {
           labels: {
             category: "phone-numbers",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['phoneNumber']
         }
       },
       {
@@ -101,15 +101,15 @@ export class PhoneTools {
             forwardingNumber: { type: 'string', description: 'Number to forward calls to' },
             callRecording: { type: 'boolean', description: 'Enable call recording' },
             whisperMessage: { type: 'string', description: 'Whisper message played to agent' },
+          },
+          required: ['phoneNumberId']
+        },
         _meta: {
           labels: {
             category: "phone-numbers",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['phoneNumberId']
         }
       },
       {
@@ -120,15 +120,15 @@ export class PhoneTools {
           properties: {
             phoneNumberId: { type: 'string', description: 'Phone Number ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['phoneNumberId']
+        },
         _meta: {
           labels: {
             category: "phone-numbers",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['phoneNumberId']
         }
       },
 
@@ -141,15 +141,15 @@ export class PhoneTools {
           properties: {
             phoneNumberId: { type: 'string', description: 'Phone Number ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['phoneNumberId']
+        },
         _meta: {
           labels: {
             category: "phone-numbers",
             access: "write",
             complexity: "batch"
           }
-        }
-          },
-          required: ['phoneNumberId']
         }
       },
       {
@@ -164,15 +164,15 @@ export class PhoneTools {
             forwardTo: { type: 'string', description: 'Number to forward to' },
             ringTimeout: { type: 'number', description: 'Ring timeout in seconds' },
             voicemailEnabled: { type: 'boolean', description: 'Enable voicemail on no answer' },
+          },
+          required: ['phoneNumberId']
+        },
         _meta: {
           labels: {
             category: "phone-numbers",
             access: "write",
             complexity: "batch"
           }
-        }
-          },
-          required: ['phoneNumberId']
         }
       },
 
@@ -212,18 +212,18 @@ export class PhoneTools {
                   action: { type: 'string', description: 'Action type' },
                   destination: { type: 'string', description: 'Action destination' }
                 },
+              },
+              description: 'Menu options'
+            }
+          },
+          required: ['name', 'greeting']
+        },
         _meta: {
           labels: {
             category: "phone-numbers",
             access: "write",
             complexity: "simple"
           }
-        }
-              },
-              description: 'Menu options'
-            }
-          },
-          required: ['name', 'greeting']
         }
       },
       {
@@ -237,15 +237,15 @@ export class PhoneTools {
             name: { type: 'string', description: 'Menu name' },
             greeting: { type: 'string', description: 'Greeting message' },
             options: { type: 'array', description: 'Menu options' },
+          },
+          required: ['menuId']
+        },
         _meta: {
           labels: {
             category: "phone-numbers",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['menuId']
         }
       },
       {
@@ -256,15 +256,15 @@ export class PhoneTools {
           properties: {
             menuId: { type: 'string', description: 'IVR Menu ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['menuId']
+        },
         _meta: {
           labels: {
             category: "phone-numbers",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['menuId']
         }
       },
 
@@ -336,15 +336,15 @@ export class PhoneTools {
           properties: {
             voicemailId: { type: 'string', description: 'Voicemail ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['voicemailId']
+        },
         _meta: {
           labels: {
             category: "phone-numbers",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['voicemailId']
         }
       },
 
@@ -375,15 +375,15 @@ export class PhoneTools {
             locationId: { type: 'string', description: 'Location ID' },
             phoneNumber: { type: 'string', description: 'Phone number to verify' },
             name: { type: 'string', description: 'Friendly name' },
+          },
+          required: ['phoneNumber']
+        },
         _meta: {
           labels: {
             category: "phone-numbers",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['phoneNumber']
         }
       },
       {
@@ -395,15 +395,15 @@ export class PhoneTools {
             callerIdId: { type: 'string', description: 'Caller ID record ID' },
             locationId: { type: 'string', description: 'Location ID' },
             code: { type: 'string', description: 'Verification code' },
+          },
+          required: ['callerIdId', 'code']
+        },
         _meta: {
           labels: {
             category: "phone-numbers",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['callerIdId', 'code']
         }
       },
       {
@@ -414,15 +414,15 @@ export class PhoneTools {
           properties: {
             callerIdId: { type: 'string', description: 'Caller ID record ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['callerIdId']
+        },
         _meta: {
           labels: {
             category: "phone-numbers",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['callerIdId']
         }
       }
     ];

@@ -37,15 +37,15 @@ export class SmartListsTools {
           properties: {
             smartListId: { type: 'string', description: 'Smart List ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['smartListId']
+        },
         _meta: {
           labels: {
             category: "smartlists",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['smartListId']
         }
       },
       {
@@ -65,19 +65,19 @@ export class SmartListsTools {
                   operator: { type: 'string', description: 'Comparison operator (equals, contains, etc.)' },
                   value: { type: 'string', description: 'Filter value' }
                 },
-        _meta: {
-          labels: {
-            category: "smartlists",
-            access: "write",
-            complexity: "simple"
-          }
-        }
               },
               description: 'Filter conditions'
             },
             filterOperator: { type: 'string', enum: ['AND', 'OR'], description: 'How to combine filters' }
           },
           required: ['name', 'filters']
+        },
+        _meta: {
+          labels: {
+            category: "smartlists",
+            access: "write",
+            complexity: "simple"
+          }
         }
       },
       {
@@ -91,15 +91,15 @@ export class SmartListsTools {
             name: { type: 'string', description: 'Smart list name' },
             filters: { type: 'array', description: 'Filter conditions' },
             filterOperator: { type: 'string', enum: ['AND', 'OR'], description: 'How to combine filters' },
+          },
+          required: ['smartListId']
+        },
         _meta: {
           labels: {
             category: "smartlists",
             access: "write",
             complexity: "simple"
           }
-        }
-          },
-          required: ['smartListId']
         }
       },
       {
@@ -110,15 +110,15 @@ export class SmartListsTools {
           properties: {
             smartListId: { type: 'string', description: 'Smart List ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['smartListId']
+        },
         _meta: {
           labels: {
             category: "smartlists",
             access: "delete",
             complexity: "simple"
           }
-        }
-          },
-          required: ['smartListId']
         }
       },
       {
@@ -131,15 +131,15 @@ export class SmartListsTools {
             locationId: { type: 'string', description: 'Location ID' },
             limit: { type: 'number', description: 'Max results' },
             offset: { type: 'number', description: 'Pagination offset' },
+          },
+          required: ['smartListId']
+        },
         _meta: {
           labels: {
             category: "smartlists",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['smartListId']
         }
       },
       {
@@ -150,15 +150,15 @@ export class SmartListsTools {
           properties: {
             smartListId: { type: 'string', description: 'Smart List ID' },
             locationId: { type: 'string', description: 'Location ID' },
+          },
+          required: ['smartListId']
+        },
         _meta: {
           labels: {
             category: "smartlists",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['smartListId']
         }
       },
       {
@@ -170,15 +170,15 @@ export class SmartListsTools {
             smartListId: { type: 'string', description: 'Smart List ID to duplicate' },
             locationId: { type: 'string', description: 'Location ID' },
             name: { type: 'string', description: 'Name for the duplicate' },
+          },
+          required: ['smartListId']
+        },
         _meta: {
           labels: {
             category: "smartlists",
             access: "read",
             complexity: "simple"
           }
-        }
-          },
-          required: ['smartListId']
         }
       }
     ];
