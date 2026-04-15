@@ -7,14 +7,14 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install ALL dependencies (including devDeps for tsc)
+RUN npm install
 
 # Copy source code
 COPY . .
 
-# Build the application
-RUN npm run build
+# Build server only (skip dynamic-ui which has broken vite configs)
+RUN npx tsc
 
 # Expose the port
 EXPOSE 8000
@@ -23,4 +23,4 @@ EXPOSE 8000
 ENV NODE_ENV=production
 
 # Start the HTTP server
-CMD ["npm", "start"] 
+CMD ["npm", "start"]
