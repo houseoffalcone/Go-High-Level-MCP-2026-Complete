@@ -126,15 +126,53 @@ function inferAnnotations(toolName: string, meta?: any): ToolAnnotations {
 }
 
 /**
- * Convert JSON Schema inputSchema to a Zod passthrough object
- * We use z.object({}).passthrough() to accept any args since the
- * original schemas are JSON Schema, not Zod. The MCP SDK will
- * still send the original JSON Schema to clients.
+ * Convert JSON Schema inputSchema to a Zod schema that preserves
+ * the property definitions for MCP clients to see.
+ * We build a Zod object with all properties as z.any() so the SDK
+ * serializes the correct shape to clients while still accepting any value.
  */
-function makeZodSchema(_jsonSchema: any): z.ZodTypeAny {
-  // Use a catch-all that accepts any object
-  // The actual validation happens in the tool handler
-  return z.object({}).passthrough();
+function makeZodSchema(jsonSchema: any): z.ZodTypeAny {
+  if (!jsonSchema || !jsonSchema.properties || typeof jsonSchema.properties !== 'object') {
+    return z.object({}).passthrough();
+  }
+
+  const shape: Record<string, z.ZodTypeAny> = {};
+  for (const [key, prop] of Object.entries(jsonSchema.properties)) {
+    const p = prop as any;
+    let fieldSchema: z.ZodTypeAny;
+
+    // Map JSON Schema types to Zod types so the SDK serializes them correctly
+    switch (p.type) {
+      case 'string':
+        fieldSchema = z.string().describe(p.description || '');
+        break;
+      case 'number':
+      case 'integer':
+        fieldSchema = z.number().describe(p.description || '');
+        break;
+      case 'boolean':
+        fieldSchema = z.boolean().describe(p.description || '');
+        break;
+      case 'array':
+        fieldSchema = z.array(z.any()).describe(p.description || '');
+        break;
+      case 'object':
+        fieldSchema = z.record(z.any()).describe(p.description || '');
+        break;
+      default:
+        fieldSchema = z.any().describe(p.description || '');
+    }
+
+    // Make optional unless listed in required
+    const required = jsonSchema.required || [];
+    if (!required.includes(key)) {
+      fieldSchema = fieldSchema.optional();
+    }
+
+    shape[key] = fieldSchema;
+  }
+
+  return z.object(shape).passthrough();
 }
 
 // ─── Tool Registry ──────────────────────────────────────────
@@ -291,12 +329,13 @@ export class ToolRegistry {
       const annotations = inferAnnotations(tool.name, meta);
 
       try {
+        const zodSchema = makeZodSchema(tool.inputSchema);
         server.registerTool(
           tool.name,
           {
             title: annotations.title,
             description: tool.description || '',
-            inputSchema: tool.inputSchema,
+            inputSchema: zodSchema,
             annotations,
             _meta: meta,
           },
