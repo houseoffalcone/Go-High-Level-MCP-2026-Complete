@@ -143,7 +143,7 @@ async function main() {
 
   app.use(cors({
     origin: true,
-    methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
+    methods: ['GET', 'POST', 'DELETE', 'HEAD', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'mcp-session-id', 'x-ghl-access-token', 'x-ghl-location-id'],
     credentials: true,
   }));
@@ -152,8 +152,19 @@ async function main() {
 
   // Request logging middleware
   app.use((req, _res, next) => {
-    log('debug', `${req.method} ${req.path}`, { ip: req.ip });
+    log('info', `${req.method} ${req.path}`, { ip: req.ip, accept: req.headers.accept, origin: req.headers.origin });
     next();
+  });
+
+  // ── HEAD handler for MCP protocol discovery ──────────────
+  // Claude.ai sends HEAD first to discover protocol version
+  app.head('/mcp', (_req, res) => {
+    res.setHeader('MCP-Protocol-Version', '2025-03-26');
+    res.status(200).end();
+  });
+  app.head('/', (_req, res) => {
+    res.setHeader('MCP-Protocol-Version', '2025-03-26');
+    res.status(200).end();
   });
 
   // ── 5. Streamable HTTP Endpoint ──────────────────────────
@@ -208,7 +219,9 @@ async function main() {
     return srv;
   }
 
-  app.all('/mcp', async (req, res) => {
+  // MCP Streamable HTTP handler — mounted on both /mcp and / (root)
+  // Claude.ai may POST to either path depending on what URL the user enters
+  const mcpHandler = async (req: express.Request, res: express.Response) => {
     try {
       const transport = new StreamableHTTPServerTransport({
         sessionIdGenerator: undefined, // stateless
@@ -242,7 +255,13 @@ async function main() {
         res.status(500).json({ error: 'Internal server error' });
       }
     }
-  });
+  };
+
+  app.all('/mcp', mcpHandler);
+
+  // Also mount on root — some MCP clients (including Claude.ai) POST to the exact URL entered
+  app.post('/', mcpHandler);
+  app.delete('/', mcpHandler);
 
   // ── 6. Legacy SSE Endpoint ───────────────────────────────
   // Keep SSE for backward compatibility with older clients
