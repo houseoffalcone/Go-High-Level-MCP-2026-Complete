@@ -296,6 +296,7 @@ export class ToolRegistry {
           {
             title: annotations.title,
             description: tool.description || '',
+            inputSchema: tool.inputSchema,
             annotations,
             _meta: meta,
           },
