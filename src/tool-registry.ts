@@ -157,7 +157,7 @@ function makeZodSchema(jsonSchema: any): z.ZodTypeAny {
         fieldSchema = z.array(z.any()).describe(p.description || '');
         break;
       case 'object':
-        fieldSchema = z.record(z.any()).describe(p.description || '');
+        fieldSchema = z.record(z.string(), z.any()).describe(p.description || '');
         break;
       default:
         fieldSchema = z.any().describe(p.description || '');
