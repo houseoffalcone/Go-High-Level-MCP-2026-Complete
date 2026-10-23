@@ -11,6 +11,7 @@
  */
 
 import express from 'express';
+import { timingSafeEqual } from 'crypto';
 import cors from 'cors';
 import * as dotenv from 'dotenv';
 
@@ -144,11 +145,37 @@ async function main() {
   app.use(cors({
     origin: true,
     methods: ['GET', 'POST', 'DELETE', 'HEAD', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'mcp-session-id', 'x-ghl-access-token', 'x-ghl-location-id'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'mcp-session-id', 'x-ghl-access-token', 'x-ghl-location-id', 'x-highway-key'],
     credentials: true,
   }));
 
   app.use(express.json());
+
+  // ── Highway key ──────────────────────────────────────────
+  // Every surface that lists or runs tools (/tools, /tools/call, /execute, /mcp, /sse, /apps…)
+  // needs the `x-highway-key` header matching HIGHWAY_API_KEY. Open without a key: GET /health,
+  // GET / (endpoint index + counts), HEAD and OPTIONS (protocol discovery, CORS preflight).
+  // Fail closed: with no HIGHWAY_API_KEY configured, guarded paths answer 503, never pass.
+  const HIGHWAY_API_KEY = process.env.HIGHWAY_API_KEY || '';
+  const OPEN_GET_PATHS = new Set(['/health', '/']);
+  app.use((req, res, next) => {
+    if (req.method === 'HEAD' || req.method === 'OPTIONS' || (req.method === 'GET' && OPEN_GET_PATHS.has(req.path))) {
+      next();
+      return;
+    }
+    if (!HIGHWAY_API_KEY) {
+      res.status(503).json({ error: 'HIGHWAY_API_KEY is not configured on the server' });
+      return;
+    }
+    const header = req.headers['x-highway-key'];
+    const given = Buffer.from(Array.isArray(header) ? header[0] || '' : header || '', 'utf8');
+    const expected = Buffer.from(HIGHWAY_API_KEY, 'utf8');
+    if (given.length !== expected.length || !timingSafeEqual(given, expected)) {
+      res.status(401).json({ error: 'missing or wrong x-highway-key' });
+      return;
+    }
+    next();
+  });
 
   // Request logging middleware
   app.use((req, _res, next) => {

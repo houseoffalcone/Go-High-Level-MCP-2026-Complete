@@ -1102,3 +1102,7 @@ This project represents hundreds of hours of development work to help the GoHigh
 ---
 
 *Made with ❤️ for the GoHighLevel community by developers who understand the power of automation.* 
+
+## Access key (HOF fork)
+
+Every surface that lists or runs tools (`/tools`, `/tools/call`, `/execute`, `/mcp`, `/sse`, `/apps`) requires the header `x-highway-key` matching the `HIGHWAY_API_KEY` environment variable. `GET /health` and `GET /` stay open. With no `HIGHWAY_API_KEY` set the server answers `503` on guarded paths (fail closed). Rotate by changing the variable and redeploying.
