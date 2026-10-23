@@ -11,6 +11,7 @@
  */
 
 import express from 'express';
+import { highwayKeyGuard, HIGHWAY_KEY_HEADER } from './highway-key.js';
 import cors from 'cors';
 import * as dotenv from 'dotenv';
 
@@ -144,11 +145,14 @@ async function main() {
   app.use(cors({
     origin: true,
     methods: ['GET', 'POST', 'DELETE', 'HEAD', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'mcp-session-id', 'x-ghl-access-token', 'x-ghl-location-id'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'mcp-session-id', 'x-ghl-access-token', 'x-ghl-location-id', HIGHWAY_KEY_HEADER],
     credentials: true,
   }));
 
   app.use(express.json());
+
+  // Highway key: see src/highway-key.ts (shared with the legacy http-server.ts).
+  app.use(highwayKeyGuard());
 
   // Request logging middleware
   app.use((req, _res, next) => {

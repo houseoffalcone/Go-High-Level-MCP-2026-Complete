@@ -9,6 +9,7 @@
  */
 
 import express from 'express';
+import { highwayKeyGuard, HIGHWAY_KEY_HEADER } from './highway-key.js';
 import cors from 'cors';
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
@@ -73,11 +74,14 @@ class GHLMCPHttpServer {
         callback(new Error('CORS not allowed'));
       },
       methods: ['GET', 'POST', 'OPTIONS'],
-      allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
+      allowedHeaders: ['Content-Type', 'Authorization', 'Accept', HIGHWAY_KEY_HEADER],
       credentials: true
     }));
 
     this.app.use(express.json());
+
+    // Highway key: every tool surface needs x-highway-key (see src/highway-key.ts); /health stays open.
+    this.app.use(highwayKeyGuard());
 
     this.app.use((req, _res, next) => {
       console.log(`[HTTP] ${req.method} ${req.path} - ${new Date().toISOString()}`);
