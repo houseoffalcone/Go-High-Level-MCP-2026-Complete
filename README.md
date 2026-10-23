@@ -594,6 +594,7 @@ npm run dev
 ```bash
 # Required Environment Variables
 GHL_API_KEY=your_private_integrations_api_key_here  # From Private Integrations, NOT regular API key
+HIGHWAY_API_KEY=generate_a_long_random_secret_here  # Required: clients send it as the x-highway-key header; unset => 503 on every tool endpoint
 GHL_BASE_URL=https://services.leadconnectorhq.com
 GHL_LOCATION_ID=your_location_id_here              # From Settings → Company → Locations
 NODE_ENV=production
@@ -623,10 +624,10 @@ npm run lint           # TypeScript linting
 curl http://localhost:8000/health
 
 # List available tools
-curl http://localhost:8000/tools
+curl -H "x-highway-key: $HIGHWAY_API_KEY" http://localhost:8000/tools
 
 # Test MCP SSE endpoint
-curl -H "Accept: text/event-stream" http://localhost:8000/sse
+curl -H "x-highway-key: $HIGHWAY_API_KEY" -H "Accept: text/event-stream" http://localhost:8000/sse
 ```
 
 ## 🌐 Deployment Guide
@@ -645,7 +646,7 @@ npm i -g vercel
 vercel --prod
 
 # Configure environment variables in Vercel dashboard
-# Add: GHL_API_KEY, GHL_BASE_URL, GHL_LOCATION_ID, NODE_ENV
+# Add: GHL_API_KEY, GHL_BASE_URL, GHL_LOCATION_ID, NODE_ENV, HIGHWAY_API_KEY
 ```
 
 **Vercel Configuration** (vercel.json):
@@ -697,6 +698,7 @@ docker build -t ghl-mcp-server .
 # Run container
 docker run -p 8000:8000 \
   -e GHL_API_KEY=your_key \
+  -e HIGHWAY_API_KEY=your_long_random_secret \
   -e GHL_BASE_URL=https://services.leadconnectorhq.com \
   -e GHL_LOCATION_ID=your_location_id \
   ghl-mcp-server
